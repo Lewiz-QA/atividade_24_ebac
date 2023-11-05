@@ -1,0 +1,79 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-11-05T05:14:07.121Z",
+    "end": "2023-11-05T05:14:07.165Z",
+    "duration": 44,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "success",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "daec4dfc-1b73-4c69-b451-5b97de9a3aa9",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [],
+    "tests": [],
+    "suites": [
+      {
+        "uuid": "773a620f-6594-4707-8303-72385be79814",
+        "title": "Customers Resource",
+        "fullFile": "E:\\Particular\\Studies\\Ebac_Local\\Modulo_24\\atividade_24_ebac\\ebac_demo_store\\sample-joi-contract-testing\\test\\schemas\\customers\\customers.js",
+        "file": "\\test\\schemas\\customers\\customers.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "Deve validar o schema de uma lista de Clientes",
+            "fullTitle": "Customers Resource Deve validar o schema de uma lista de Clientes",
+            "timedOut": false,
+            "duration": 34,
+            "state": "passed",
+            "speed": "fast",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "var customersList = Joi.array().items(Joi.object().keys({\n  address: Joi.required(),\n  createdAt: Joi.required(),\n  email: Joi.required(),\n  firstName: Joi.required(),\n  id: Joi.required(),\n  lastName: Joi.required(),\n  phone: Joi.required(),\n  updatedAt: Joi.required()\n}));\nrequest.get(\"/customers\").set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjk5MTU4MDM0LCJleHAiOjE2OTkzMzA4MzR9.SVmJWoWKVVo2y9-Dd_qT-2xtCooCMwU23TB5OuSfhd4').set('Accept', 'application/json').expect('Content-Type', 'application/json; charset=utf-8').expect(200).end(function (err, res) {\n  joiAssert(res.body, customersList);\n  done(err);\n});",
+            "err": {},
+            "isRoot": false,
+            "uuid": "fe9cacc2-e13e-4fd7-8460-8a4b2350662a",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "fe9cacc2-e13e-4fd7-8460-8a4b2350662a"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 34,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 20000
+      }
+    ],
+    "passes": [],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 0,
+    "root": true,
+    "rootEmpty": true,
+    "_timeout": 20000
+  },
+  "copyrightYear": 2023
+}
