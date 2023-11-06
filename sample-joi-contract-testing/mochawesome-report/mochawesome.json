@@ -1,14 +1,14 @@
 {
   "stats": {
-    "suites": 1,
-    "tests": 1,
-    "passes": 1,
+    "suites": 2,
+    "tests": 2,
+    "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2023-11-05T05:14:07.121Z",
-    "end": "2023-11-05T05:14:07.165Z",
-    "duration": 44,
-    "testsRegistered": 1,
+    "start": "2023-11-06T02:16:22.995Z",
+    "end": "2023-11-06T02:16:23.049Z",
+    "duration": 54,
+    "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
@@ -19,7 +19,7 @@
     "pendingPercentClass": "danger"
   },
   "suites": {
-    "uuid": "daec4dfc-1b73-4c69-b451-5b97de9a3aa9",
+    "uuid": "dcdfdc57-4fa1-44d3-b5ca-c205ee48150f",
     "title": "",
     "fullFile": "",
     "file": "",
@@ -28,7 +28,45 @@
     "tests": [],
     "suites": [
       {
-        "uuid": "773a620f-6594-4707-8303-72385be79814",
+        "uuid": "d28788fa-1889-42e3-9cba-c8a9799f0a6d",
+        "title": "Addresses Resource",
+        "fullFile": "E:\\Particular\\Studies\\Ebac_Local\\Modulo_24\\atividade_24_ebac\\ebac_demo_store\\sample-joi-contract-testing\\test\\schemas\\addresses\\addresses.js",
+        "file": "\\test\\schemas\\addresses\\addresses.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "Deve validar o schema de uma lista de Endereços",
+            "fullTitle": "Addresses Resource Deve validar o schema de uma lista de Endereços",
+            "timedOut": false,
+            "duration": 35,
+            "state": "passed",
+            "speed": "fast",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "var addressesList = Joi.array().items(Joi.object().keys({\n  address_1: Joi.string().allow(null),\n  address_2: Joi.string().allow(null),\n  city: Joi.string().allow(null),\n  createdAt: Joi.string().isoDate().required(),\n  id: Joi.string().required(),\n  state: Joi.string().allow(null),\n  updatedAt: Joi.string().isoDate().allow(null),\n  zip: Joi.number().allow(null)\n}));\nrequest.get(\"/addresses\").set('Authorization', 'Bearer ' + token).set('Accept', 'application/json').expect('Content-Type', 'application/json; charset=utf-8').expect(200).end(function (err, res) {\n  joiAssert(res.body, addressesList);\n  done(err);\n});",
+            "err": {},
+            "isRoot": false,
+            "uuid": "033850f4-6ea8-4854-833e-5a796cc55ed4",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "033850f4-6ea8-4854-833e-5a796cc55ed4"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 35,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 20000
+      },
+      {
+        "uuid": "3e7df079-981f-4879-88d3-74d376701093",
         "title": "Customers Resource",
         "fullFile": "E:\\Particular\\Studies\\Ebac_Local\\Modulo_24\\atividade_24_ebac\\ebac_demo_store\\sample-joi-contract-testing\\test\\schemas\\customers\\customers.js",
         "file": "\\test\\schemas\\customers\\customers.js",
@@ -39,28 +77,28 @@
             "title": "Deve validar o schema de uma lista de Clientes",
             "fullTitle": "Customers Resource Deve validar o schema de uma lista de Clientes",
             "timedOut": false,
-            "duration": 34,
+            "duration": 11,
             "state": "passed",
             "speed": "fast",
             "pass": true,
             "fail": false,
             "pending": false,
-            "code": "var customersList = Joi.array().items(Joi.object().keys({\n  address: Joi.required(),\n  createdAt: Joi.required(),\n  email: Joi.required(),\n  firstName: Joi.required(),\n  id: Joi.required(),\n  lastName: Joi.required(),\n  phone: Joi.required(),\n  updatedAt: Joi.required()\n}));\nrequest.get(\"/customers\").set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjk5MTU4MDM0LCJleHAiOjE2OTkzMzA4MzR9.SVmJWoWKVVo2y9-Dd_qT-2xtCooCMwU23TB5OuSfhd4').set('Accept', 'application/json').expect('Content-Type', 'application/json; charset=utf-8').expect(200).end(function (err, res) {\n  joiAssert(res.body, customersList);\n  done(err);\n});",
+            "code": "var customersList = Joi.array().items(Joi.object().keys({\n  address: Joi.object().allow(null),\n  createdAt: Joi.string().isoDate().required(),\n  email: Joi.string().allow(null),\n  firstName: Joi.string().allow(null),\n  id: Joi.string().required(),\n  lastName: Joi.string().allow(null),\n  phone: Joi.string().allow(null),\n  updatedAt: Joi.string().isoDate().allow(null)\n}));\nrequest.get(\"/customers\").set('Authorization', 'Bearer ' + token).set('Accept', 'application/json').expect('Content-Type', 'application/json; charset=utf-8').expect(200).end(function (err, res) {\n  joiAssert(res.body, customersList);\n  done(err);\n});",
             "err": {},
             "isRoot": false,
-            "uuid": "fe9cacc2-e13e-4fd7-8460-8a4b2350662a",
+            "uuid": "f21e6fd7-0093-403c-8405-512aa3ca4509",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "fe9cacc2-e13e-4fd7-8460-8a4b2350662a"
+          "f21e6fd7-0093-403c-8405-512aa3ca4509"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 34,
+        "duration": 11,
         "root": false,
         "rootEmpty": false,
         "_timeout": 20000

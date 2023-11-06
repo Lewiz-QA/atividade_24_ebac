@@ -1,19 +1,24 @@
+const {getAccessToken} = require('../../../utils/request');
+
 describe('Customers Resource', () => {
+    let token
+    token = getAccessToken()
+    
     it('Deve validar o schema de uma lista de Clientes', done => {
       const customersList = Joi.array().items(Joi.object().keys({
-        address: Joi.required(),
-        createdAt: Joi.required(),
-        email: Joi.required(),
-        firstName: Joi.required(),
-        id: Joi.required(),
-        lastName: Joi.required(),
-        phone: Joi.required(),
-        updatedAt: Joi.required()
+        address: Joi.object().allow(null),
+        createdAt: Joi.string().isoDate().required(),
+        email: Joi.string().allow(null),
+        firstName: Joi.string().allow(null),
+        id: Joi.string().required(),
+        lastName: Joi.string().allow(null),
+        phone: Joi.string().allow(null),
+        updatedAt: Joi.string().isoDate().allow(null)
       }));
   
       request
         .get("/customers")
-        .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjk5MTU4MDM0LCJleHAiOjE2OTkzMzA4MzR9.SVmJWoWKVVo2y9-Dd_qT-2xtCooCMwU23TB5OuSfhd4')
+        .set('Authorization', `Bearer ${token}`)
         .set('Accept', 'application/json')
         .expect('Content-Type', 'application/json; charset=utf-8')
         .expect(200)
